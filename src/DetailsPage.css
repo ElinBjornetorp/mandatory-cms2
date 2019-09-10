@@ -1,0 +1,15 @@
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.gallery_image {
+  width: 300px;
+}
+
+.description {
+  text-align: left;
+}

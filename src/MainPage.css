@@ -1,0 +1,28 @@
+
+.MainPage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.productDiv {
+  width: 200px;
+  height: 450px;
+}
+
+.productDiv_header {
+  margin: 20px;
+}
+
+.productDiv_image {
+  max-width: 90%;
+  border-radius: 10%;
+}
+
+.productDiv_price {
+  margin-bottom: 8px;
+}
+
+.productDiv_stock {
+  margin-top: 0;
+}

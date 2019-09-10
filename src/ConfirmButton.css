@@ -1,0 +1,15 @@
+.ConfirmButton {
+  float: right;
+  min-width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 82px;
+  background-color: green;
+  border-color: green;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.ConfirmButton a {
+  color: white;
+}
