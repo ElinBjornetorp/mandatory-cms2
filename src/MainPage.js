@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './MainPage.css';
+import { Product } from './Product.js';
 
 let COCKPIT_ROOT = 'http://192.168.99.100:8081';
+let token = 'e98ee50b67ff8c50b6d91f951f5398';
 
 function MainPage() {
   let [products, updateProducts] = useState([]);
@@ -24,14 +26,7 @@ function MainPage() {
   }, []);
 
   let productComponents = products.map(product => {
-    return(
-      <div className="productDiv" key={product._id}>
-        <Link className="productDiv_header" to={`/detaljer/${product._id}`} >{product.name}</Link>
-        <img className="productDiv_image" src={COCKPIT_ROOT + product.images[0].path} alt={`Picture of ${product.name}`}/>
-        <p className="productDiv_price">{product.price} kr</p>
-        <p className="productDiv_stock">{product.amount_in_stock} i lager</p>
-      </div>
-    );
+    return <Product id={product._id} key={product._id} name={product.name} imageUrl={COCKPIT_ROOT + product.images[0].path} price={product.price} stock={product.amount_in_stock}/>;
   });
 
   return(
@@ -41,4 +36,4 @@ function MainPage() {
   );
 }
 
-export { MainPage, COCKPIT_ROOT };
+export { MainPage, COCKPIT_ROOT, token };

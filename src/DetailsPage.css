@@ -1,15 +1,39 @@
 
-.gallery {
+.DetailsPage-gallery {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 40px;
 }
 
-.gallery_image {
+.DetailsPage-gallery_image {
   width: 300px;
 }
 
-.description {
+.DetailsPage-description {
   text-align: left;
+}
+
+.DetailsPage-add {
+  text-align: right;
+}
+
+.DetailsPage-add button {
+  min-width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  color: white;
+  background-color: green;
+  border-color: green;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.DetailsPage-add button:hover {
+  cursor: pointer;
+}
+
+.DetailsPage-comments h3 {
+  text-align: left;
+  font-style: italic;
 }

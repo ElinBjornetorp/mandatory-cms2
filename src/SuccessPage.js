@@ -4,7 +4,10 @@ import './SuccessPage.css';
 
 function SuccessPage() {
   return(
-    <h1>Din order har gått igenom!</h1>
+    <main>
+      <h1>Din order har gått igenom!</h1>
+      <p>Vi skickar din vara/varor så fort vi kan och du kommer få en faktura på ditt köp.</p>
+    </main>
   );
 }
 

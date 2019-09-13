@@ -1,0 +1,22 @@
+
+.Product {
+  width: 200px;
+  height: 450px;
+}
+
+.Product-header {
+  margin: 20px;
+}
+
+.Product-image {
+  max-width: 90%;
+  border-radius: 10%;
+}
+
+.Product-price {
+  margin-bottom: 8px;
+}
+
+.Product-stock {
+  margin-top: 0;
+}
