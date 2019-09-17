@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './MainPage.css';
 import { Product } from './Product.js';
-import { useDebounce } from 'use-debounce';
+//import { useDebounce } from 'use-debounce';
 
 let COCKPIT_ROOT = 'http://192.168.99.100:8081';
-let token = 'e98ee50b67ff8c50b6d91f951f5398';
+let token = 'd0f35d14553a13c0f1d5b57f0d0b1c';
 
 function MainPage() {
   let [products, updateProducts] = useState([]);
   let [search, updateSearch] = useState('');
-  //let [debouncedSearch] = useDebounce(search, 1000);
   let [pageNr, updatePageNr] = useState(1);
   let itemsPerPage = 5;
   let [total, updateTotal] = useState(undefined);
@@ -38,7 +37,7 @@ function MainPage() {
     .catch(function (error) {
       console.log(error);
     });
-  }, [pageNr, inStockFilter, search]);
+  }, [pageNr, inStockFilter, search, itemsPerPage]);
 
   function onChangeSearch(event) {
     let searchInput = event.target.value;

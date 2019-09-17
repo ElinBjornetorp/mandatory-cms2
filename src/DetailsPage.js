@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import './DetailsPage.css';
 import axios from 'axios';
-import { COCKPIT_ROOT, token } from './MainPage.js';
+import { COCKPIT_ROOT } from './MainPage.js';
 import MDReactComponent from 'markdown-react-js';
 import { Comment } from './Comment.js';
-
-//Hur får jag bort kommenterar-rubriken om det inte finns kommentarer?
 
 function DetailsPage(props) {
   let [product, updateProduct] = useState({});
@@ -29,10 +27,10 @@ function DetailsPage(props) {
     });
 
     //Make request to get comments data
-    axios.post(`${COCKPIT_ROOT}/api/collections/get/reviews?token=${token}&filter[product._id]=${productId}`)
+    // ---- **Problems with unauthorized? Add: ?token=${token}&
+    axios.post(`${COCKPIT_ROOT}/api/collections/get/reviews?filter[product._id]=${productId}`)
     .then(function (response) {
       let commentData = response.data.entries;
-      //console.log(commentData);
       updateComments(commentData);
     })
     .catch(function (error) {
@@ -66,7 +64,7 @@ function DetailsPage(props) {
       shoppingCart = JSON.parse(localStorage);
     }
 
-    //Convert to JSON and save in local storage
+    //Add new key, convert to JSON and save in local storage
     shoppingCart[productId] = orderInfo;
     let jsonString = JSON.stringify(shoppingCart);
     window.localStorage.setItem('shopping-cart', jsonString);

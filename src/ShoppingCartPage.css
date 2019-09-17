@@ -39,3 +39,17 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.ShoppingCartPage-go-forward-button {
+  float: right;
+  min-width: 100px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 82px;
+  background-color: green;
+  border-color: green;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
