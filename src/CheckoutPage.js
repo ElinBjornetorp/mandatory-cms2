@@ -23,12 +23,18 @@ function CheckoutPage() {
   }
 
   return(
-    <main>
+    <main className="CheckoutPage">
       { redirect ? <Redirect to="/order-klar"/> : null}
-      <h1>Kassa</h1>
-      <form onSubmit={onSubmitCheckout}>
-        Namn: <input type="text" name="name" required onChange={onChangeUpdateName}/> <br/>
-        Adress: <textarea name="address" required onChange={onChangeUpdateAddress}/> <br/>
+      <h2>Kassa</h2>
+      <form className="CheckoutPage-form" onSubmit={onSubmitCheckout}>
+        <div>
+          <label htmlFor="name">Namn: </label> <br/>
+          <input type="text" name="name" id="name" required onChange={onChangeUpdateName}/>
+        </div>
+        <div>
+          <label htmlFor="address">Adress: </label> <br/>
+          <textarea name="address" id="address" required onChange={onChangeUpdateAddress}/> <br/>
+        </div>
         <button className="ConfirmButton" type="submit">Slutför köp</button>
       </form>
     </main>

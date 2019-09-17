@@ -1,7 +1,46 @@
 
+.MainPage-instock {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .MainPage-products {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
+}
+
+.MainPage-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.MainPage-pagination button {
+  min-width: 90px;
+  height: 40px;
+  background-color: #801182;
+  border-color: #801182;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.MainPage-pagination button:disabled {
+  background-color: grey;
+  border-color: grey;
+}
+
+.MainPage-pagination button:disabled:hover {
+  cursor: auto;
+}
+
+.MainPage-previous-button {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.MainPage-next-button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

@@ -6,3 +6,8 @@
   border: 1px solid black;
   text-align: left;
 }
+
+.Comment h4 {
+  text-align: left;
+  font-style: italic;
+}

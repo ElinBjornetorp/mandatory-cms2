@@ -6,6 +6,8 @@ import { COCKPIT_ROOT, token } from './MainPage.js';
 import MDReactComponent from 'markdown-react-js';
 import { Comment } from './Comment.js';
 
+//Hur får jag bort kommenterar-rubriken om det inte finns kommentarer?
+
 function DetailsPage(props) {
   let [product, updateProduct] = useState({});
   let [comments, updateComments] = useState([]);
@@ -86,6 +88,8 @@ function DetailsPage(props) {
     return <Comment title={comment.title} body={comment.body} rating={comment.rating} key={comment._id}/>;
   });
 
+  console.log(commentComponents);
+
   return(
     <>
       <main>
@@ -98,11 +102,11 @@ function DetailsPage(props) {
         { product.description ? <MDReactComponent className="DetailsPage-description" text={product.description}/> : null}
         <form className="DetailsPage-add" onSubmit={onSubmitAddToShoppingCart}>
           <button type="submit">Lägg till i kundvagn</button>
-          <input type="number" name="amount" value={amount} min="1" onChange={onChangeUpdateAmount}/>st
+          <input type="number" name="amount" value={amount} min="1" onChange={onChangeUpdateAmount}/> st
         </form>
       </main>
       <div className="DetailsPage-comments">
-        <h3>Kommentarer</h3>
+        { comments.length > 0 ? <h3>Kommentarer</h3> : null }
         {commentComponents}
       </div>
     </>

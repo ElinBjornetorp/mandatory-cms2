@@ -29,11 +29,12 @@
   font-weight: bold;
 }
 
-.DetailsPage-add button:hover {
-  cursor: pointer;
+.DetailsPage-add input {
+  width: 23px;
+  margin-left: 5px;
 }
 
 .DetailsPage-comments h3 {
-  text-align: left;
+  margin-left: 15px;
   font-style: italic;
 }

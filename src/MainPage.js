@@ -10,8 +10,8 @@ let token = 'e98ee50b67ff8c50b6d91f951f5398';
 
 function MainPage() {
   let [products, updateProducts] = useState([]);
-  let [filter, updateFilter] = useState('');
-  //let [debouncedFilter] = useDebounce(filter, 1000);
+  let [search, updateSearch] = useState('');
+  //let [debouncedSearch] = useDebounce(search, 1000);
   let [pageNr, updatePageNr] = useState(1);
   let itemsPerPage = 5;
   let [total, updateTotal] = useState(undefined);
@@ -25,7 +25,8 @@ function MainPage() {
       skip: itemsPerPage * (pageNr - 1),
       limit: itemsPerPage,
       filter: {
-        amount_in_stock: inStockFilter ? true : undefined
+        amount_in_stock: inStockFilter ? true : undefined,
+        name: { "$regex": search } //Adding this to the url: ?filter[name][$regex=searchInput]
       },
     })
     .then(function (response) {
@@ -37,26 +38,11 @@ function MainPage() {
     .catch(function (error) {
       console.log(error);
     });
-  }, [pageNr, inStockFilter]);
+  }, [pageNr, inStockFilter, search]);
 
-  function onChangeFilter(event) {
+  function onChangeSearch(event) {
     let searchInput = event.target.value;
-
-    //Updating state:filter
-    updateFilter(searchInput);
-
-    //Make request to API with Axios
-    axios.post(`${COCKPIT_ROOT}/api/collections/get/Products`, {
-      filter: {name: { "$regex": searchInput }}, //Adding this to the url: ?filter[name][$regex=searchInput]
-    })
-    .then(function (response) {
-      let productData = response.data.entries;
-      console.log(productData);
-      updateProducts(productData);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    updateSearch(searchInput);
   }
 
   function onClickGoForward(event) {
@@ -84,14 +70,22 @@ function MainPage() {
   return(
     <main className="MainPage">
       <div className="MainPage-search-area">
-        Sök: <input type="text" name="searchfield" value={filter} onChange={onChangeFilter}/> <br/>
-        <input type="checkbox" name="in-store-only" value={inStockFilter} onChange={onChangeCheck}/>Visa endast varor som finns i lager.
+        <div className="MainPage-search">
+          <label htmlFor="search">Sök: </label>
+          <input type="text" name="searchfield" id="search" value={search} onChange={onChangeSearch}/>
+        </div>
+        <div className="MainPage-instock">
+          <input type="checkbox" name="in-stock-only" value={inStockFilter} onChange={onChangeCheck}/>
+          <label htmlFor="instock">Visa endast varor som finns i lager.</label>
+        </div>
       </div>
       <div className="MainPage-products">
         {productComponents}
       </div>
-      { pageNr === 1 ? <button disabled>Föregående</button> : <button type="button" onClick={onClickGoBack}>Föregående</button>}
-      { pageNr === finalPage ? <button disabled>Nästa</button>: <button type="button" onClick={onClickGoForward}>Nästa</button>}
+      <div className="MainPage-pagination">
+      { pageNr === 1 ? <button className="MainPage-previous-button" disabled>Föregående</button> : <button className="MainPage-previous-button" type="button" onClick={onClickGoBack}>Föregående</button>}
+      { pageNr === finalPage ? <button className="MainPage-next-button" disabled>Nästa</button>: <button className="MainPage-next-button" type="button" onClick={onClickGoForward}>Nästa</button>}
+      </div>
     </main>
   );
 }

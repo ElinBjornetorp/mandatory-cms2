@@ -12,10 +12,6 @@
   font-weight: bold;
 }
 
-.ConfirmButton:hover {
-  cursor: pointer;
-}
-
 .ConfirmButton a {
   color: white;
 }

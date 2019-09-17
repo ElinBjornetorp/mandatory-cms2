@@ -1,7 +1,7 @@
 /* Header */
 
 .App-header {
-  height: 200px;
+  height: 147px;
   margin: 20px;
 }
 
@@ -14,6 +14,7 @@
 /* Main */
 main {
   min-height: 400px;
+  margin: 5%;
 }
 
 /* Links */
@@ -23,6 +24,11 @@ a {
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
+}
+
+/* Buttons */
+button:hover {
+  cursor: pointer;
 }
 
 /* Footer */

@@ -24,13 +24,36 @@ function ShoppingCartPage() {
     parsedAmount = parseInt(amount);
 
     //Creating a row
-    let row = <tr key={key}><td>{amount} st</td><td>{name}</td><td>{price} kr</td></tr>;
+    let row = <tr key={key}><td>{amount} st</td><td>{name}</td><td>{price} kr</td><td><button className="ShoppingCartPage-remove-button" id={key} onClick={onClickRemove}>Ta bort</button></td></tr>;
 
     //Adding row to 'rows'
     rows.push(row);
 
     //Adding price to sum
     sum = sum + parsedPrice * parsedAmount;
+  }
+
+  function onClickRemove(event) {
+    let id = event.target.id;
+    console.log(id);
+    let updatedProducts;
+
+    console.log('chosenProducts: ', chosenProducts);
+
+    //Copying chosenProducts to updatedProducts
+    updatedProducts = {...chosenProducts};
+
+    //Removing selected product from updatedProducts
+    delete updatedProducts[id];
+
+    console.log('updatedProducts: ', updatedProducts);
+
+    //Updating state:chosenProducts
+    updateChosenProducts(updatedProducts);
+
+    //Updating local storage
+    let jsonString = JSON.stringify(updatedProducts);
+    window.localStorage.setItem('shopping-cart', jsonString);
   }
 
   function onClickEmptyShoppingCart(event) {

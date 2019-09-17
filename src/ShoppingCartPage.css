@@ -17,6 +17,15 @@
   text-align: center;
 }
 
+.ShoppingCartPage-remove-button {
+  background-color: lightgrey;
+  border-color: lightgrey;
+  width: 62px;
+  height: 24px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 .ShoppingCartPage-clear-button {
   float: right;
   min-width: 100px;
@@ -29,8 +38,4 @@
   color: white;
   font-size: 18px;
   font-weight: bold;
-}
-
-.ShoppingCartPage-clear-button:hover {
-  cursor: pointer;
 }
