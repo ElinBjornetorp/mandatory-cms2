@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-//import { Link } from 'react-router-dom';
-import './DetailsPage.css';
 import axios from 'axios';
-import { COCKPIT_ROOT } from './MainPage.js';
 import MDReactComponent from 'markdown-react-js';
+import './DetailsPage.css';
+import { COCKPIT_ROOT } from './MainPage.js';
 import { Comment } from './Comment.js';
 
 function DetailsPage(props) {
@@ -19,7 +18,6 @@ function DetailsPage(props) {
     })
     .then(function (response) {
       let productData = response.data.entries[0];
-      //console.log(productData);
       updateProduct(productData);
     })
     .catch(function (error) {
@@ -68,8 +66,8 @@ function DetailsPage(props) {
     shoppingCart[productId] = orderInfo;
     let jsonString = JSON.stringify(shoppingCart);
     window.localStorage.setItem('shopping-cart', jsonString);
-    localStorage = window.localStorage.getItem('shopping-cart');
-    console.log('localStorage: ', localStorage);
+    //localStorage = window.localStorage.getItem('shopping-cart');
+    //console.log('localStorage: ', localStorage);
 
     //Clear input field
     updateAmount('');
@@ -85,8 +83,6 @@ function DetailsPage(props) {
   let commentComponents = comments.map(comment => {
     return <Comment title={comment.title} body={comment.body} rating={comment.rating} key={comment._id}/>;
   });
-
-  console.log(commentComponents);
 
   return(
     <>

@@ -12,6 +12,7 @@
 }
 
 /* Main */
+
 main {
   min-height: 400px;
   margin: 5%;
@@ -27,6 +28,7 @@ a {
 }
 
 /* Buttons */
+
 button:hover {
   cursor: pointer;
 }

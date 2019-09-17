@@ -7,8 +7,8 @@ export const totalPrice$ = new BehaviorSubject(window.localStorage.getItem("tota
 export const orderId$ = new BehaviorSubject(window.localStorage.getItem("order-id") || '');
 
 export function newTotalPrice(price) {
-  //Storing token in local storage
-  //If the new token is null, remove token from local storage
+  //Storing total price in local storage
+  //If the new price is null, remove total-price from local storage
   if (!price) {
     window.localStorage.removeItem('total-price');
   } else {
@@ -23,8 +23,6 @@ export function newTotalPrice(price) {
 }
 
 export function newOrderId(id) {
-  //Storing token in local storage
-  //If the new token is null, remove token from local storage
   if (!id) {
     window.localStorage.removeItem('order-id');
   } else {

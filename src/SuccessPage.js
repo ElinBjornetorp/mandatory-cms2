@@ -1,11 +1,8 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 import './SuccessPage.css';
 import { orderId$ } from './store.js';
 
 function SuccessPage() {
-  console.log('local storage: ', window.localStorage);
-
   return(
     <main>
       <h1>Tack för ditt köp!</h1>

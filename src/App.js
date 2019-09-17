@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import { MainPage } from './MainPage.js';
 import { DetailsPage } from './DetailsPage.js';
@@ -7,7 +7,6 @@ import { ShoppingCartPage } from './ShoppingCartPage.js';
 import { CheckoutPage } from './CheckoutPage.js';
 import { SuccessPage } from './SuccessPage.js';
 import { ConfirmButton } from './ConfirmButton.js';
-import { Link } from 'react-router-dom';
 
 function App() {
   return (
